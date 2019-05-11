@@ -1,0 +1,14 @@
+<!--pages/allclass/allclass.wxml-->
+<view>
+  <view class='suo' bindtap='gosearch'>
+      <i class='iconfont icon-sousuo'></i>
+    <text>搜索商品</text>
+  </view>
+</view>
+
+<view class='fenul'>
+  <view class='fenli' bindtap='golist' data-classid="{{item.classid}}" wx:for="{{classdata}}">
+    <image src="{{item.classimg}}"></image>
+    <text>{{item.name}}</text>
+  </view>
+</view>

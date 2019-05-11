@@ -1,0 +1,87 @@
+{
+	"description": "项目配置文件。",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.2.0",
+	"appid": "wx316d2561a2cafd2f",
+	"projectname": "rushouBboss",
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 5,
+			"list": [
+				{
+					"id": 0,
+					"name": "123",
+					"pathName": "pages/other/mycoupon/mycoupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "商家优惠券列表页",
+					"pathName": "pages/company_coupon/company_coupon",
+					"query": ""
+				},
+				{
+					"id": 2,
+					"name": "123",
+					"pathName": "pages/productdetail/productdetail",
+					"query": "pid=181112180544116740"
+				},
+				{
+					"id": -1,
+					"name": "123",
+					"pathName": "pages/company_coupon/company_coupon",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "111",
+					"pathName": "pages/circle/circle",
+					"query": ""
+				},
+				{
+					"id": 5,
+					"name": "111",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "tz",
+					"pathName": "pages/tz/tz",
+					"query": "",
+					"scene": null
+				}
+			]
+		}
+	}
+}

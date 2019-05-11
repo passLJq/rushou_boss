@@ -1,0 +1,144 @@
+<!--pages/class/class.wxml-->
+<wxs module="filters" src="../../Component/filters/filters.wxs"></wxs>
+<import src="../../Component/sharebox/sharebox.wxml" />
+<import src="../../Component/goTop/goTop.wxml" />
+
+<view class="class_search_box">
+  <view class='suo' bindtap='gosearch'>
+      <i class='iconfont icon-sousuo'></i>
+    <text>搜索商品</text>
+  </view>
+</view>
+
+<!-- <view class='b'>
+  <swiper autoplay="false" interval="3000" duration="500" bindchange='chang'>
+    <block wx:for="{{imgurl.AdsList}}">
+      <swiper-item>
+        <image src="{{item.Source}}" mode='scaleToFill' />
+      </swiper-item>
+    </block>
+  </swiper>
+  <view class="swibtn">
+    <view wx:for="{{imgurl.AdsList}}" class="swibtnli {{index==scrollindex?'swactive':''}} {{index}}"></view>
+  </view>
+</view> -->
+<view class='compayimg'>
+<image src="{{companyjson.shopactimg}}" mode="widthFix"></image>
+</view>
+<view class='fenul' wx:if="{{classdata.length>4}}">
+  <view class='fenli' bindtap='golist' data-classid="{{item.classid}}" wx:for="{{classdata}}" wx:if="{{index<7}}">
+    <image src="{{item.classimg}}"></image>
+    <text>{{item.name}}</text>
+  </view>
+  <view class='fenli' bindtap='golist' data-classid="more" wx:if="{{classdata.length>7}}">
+    <image src="../../image/moclass.png"></image>
+    <text>查看更多</text>
+  </view>
+</view>
+<!-- 商家优惠券 -->
+<!-- <view style="width: 100%; height: 180rpx"  wx:if="{{hasGet || unGet}}" scroll-into-view="1"> -->
+<view class="ccp" wx:if="{{unGet.length || hasGet.length}}">
+  <view class="ccp_item" wx:for="{{unGet}}">
+    <view class="title">{{item.name}}</view>
+    <view class="content">
+      <view class="up">
+        <view><text>{{item.israandom ? '??' : item.facevalue}}</text><text>元</text></view>
+        <view class="btn" bindtap='checkLogin' data-couponid="{{item.couponid}}" data-index="{{index}}">可领取</view>
+      </view>
+      <text>满{{item.uselimit}}元可用</text>
+    </view>
+  </view>
+  <!--  -->
+  <view class="ccp_item" wx:for="{{hasGet}}">
+    <view class="title">{{item.name}}</view>
+    <view class="content">
+      <view class="up">
+        <view><text>{{item.facevalue}}</text><text>元</text></view>
+        <view class="btn p">已领取</view>
+      </view>
+      <text>满{{item.uselimit}}元可用</text>
+    </view>
+  </view>
+  <!-- 查看更多 -->
+  <view wx:if="{{(unGet.length + hasGet.length) > 3}}" class="more scroll-view-item" bindtap='goCompanyCoupon'>
+    <text>查看更多</text><text class="iconfont icon-right-circle"></text>
+  </view>
+</view>
+<!-- </view> -->
+<!-- 品牌 -->
+<!-- <view>
+  <view class="seitem magebox">
+    <image src="https://images.rushouvip.cn/WebApp/invite/cls/p1.jpg" class="mae1" bindtap='golists' data-bid="180720114046359893" data-value="圣罗兰"></image>
+    <view class="mae2">
+      <image src="https://images.rushouvip.cn/WebApp/invite/cls/p2.jpg" class="mae3" bindtap='golists' data-bid="180720114038359454" data-value="迪奥"></image>
+      <image src="https://images.rushouvip.cn/WebApp/invite/cls/p4.jpg" class="mae4" bindtap='golists' data-bid="180720101426671233" data-value="兰芝"></image>
+    </view>
+  </view>
+
+<view class="seitem magebox2">
+      <image src="https://images.rushouvip.cn/WebApp/invite/cls/p3.jpg" class="mae6" bindtap='golists' data-bid="180621161404905797" data-value="皇麦世家"></image>
+      <image src="https://images.rushouvip.cn/WebApp/invite/cls/p5.jpg" class="mae5" bindtap='golists' data-bid="180723154159484190" data-value="衍生"></image>
+</view>
+</view> -->
+
+<!-- <view class='tuiitem' id="hengbiao" style="{{topok?'position: fixed; box-shadow: 0 5px 10px #eee;':'position: static'}}">
+  <view class='itemlis' bindtap='checulis' data-index="0">
+    <text class="{{xuanzhong[0]?'tuiactive':''}}">优选推荐</text>
+  </view>
+  <view class='itemlis' bindtap='checulis' data-index="1">
+    <text class="{{xuanzhong[1]?'tuiactive':''}}">超高佣金</text>
+  </view>
+  <view class='itemlis' bindtap='checulis' data-index="2">
+    <text class="{{xuanzhong[2]?'tuiactive':''}}">全球购</text>
+  </view>
+</view> -->
+
+<view class='zongbox' wx:for="{{listdata}}" wx:key='pid'>
+  <view class="onebox">
+    <navigator class='seitem box' hover-class="none" url="../productdetail/productdetail?pid={{item.pid}}">
+      <image src="{{item.pic}}" class='seitemleft'></image>
+      <image src="../../image/shouwan.png" class="pronopro" wx:if="{{item.stocks==0}}"></image>
+      <view class='seitemright'>
+        <view class="seitou">
+          <text class="seitoutext">
+            <text class="quanqiu" wx:if="{{item.iscross}}"><text>全球购</text>包邮包税</text>
+          <text class="quanqiu" wx:if="{{item.isrushbuy}}" style="display: inline-block; vertical-align: middle;border-radius: 10rpx; background-color: orange; color: #fff; border: 0; padding: 6rpx; margin-right: 10rpx;">限时抢购</text>{{item.name}}
+          </text>
+        </view>
+        <view class="seijiage">
+          <text class="pp1"><text class="yuan">¥</text>{{item.isrushbuy && item.rushbuy.specjson? filters.toFix(filters.JsonParse(item.rushbuy.specjson)[0].Price, 2) : filters.toFix(item.salePrice,2)}}</text>
+          <text class="pp2" wx:if="{{dianstatus==1}}">赚<text class="yuan">¥</text>{{filters.toFix(item.commPrice,2)}}</text>
+        </view>
+        <view class='btns' wx:if="{{dianstatus==1}}">
+          <view class='shangjia' catchtap='goadd' data-pid="{{item.pid}}" data-name="{{item.name}}" data-pic="{{item.pic}}" data-saleprice='{{item.salePrice}}' data-marketprice="{{item.marketPrice}}" data-index="{{index}}" wx:if="{{item.isup==0}}">上架</view>
+          <view class='shangjia' wx:else>已上架</view>
+          <view class='mais' data-index='{{index}}' catchtap='goshare' data-type="pro">分享</view>
+        </view>
+      </view>
+    </navigator>
+    <view class="seitem ase" wx:if="{{item.visitorlist.length>0}}">
+      <view class='visnum'>
+        <block wx:for="{{item.visitorlist}}" wx:for-index="idx" wx:for-item="imges" wx:if="{{item.visitorlist.length>0&&idx<6}}">
+          <image src="../../image/man.jpg" style='margin-left:-20rpx' wx:if="{{imges.userhead==''}}"></image>
+          <image src="{{imges.userhead}}" style='margin-left:-20rpx' wx:else></image>
+        </block>
+      </view>
+      <text>{{item.visitorcount}}人浏览过</text>
+    </view>
+  </view>
+</view>
+
+<template is="sharebox" data="{{showshare,haibao:haibao,zuan:zuan}}" />
+<template is="goTop" data="{{showtop}}" />
+
+<!-- //冻结店铺弹窗 -->
+<go_openyshop isfreeze="{{isfreeze}}"></go_openyshop>
+<view class="share_shop_img flex flex_pack_center flex_align_center" catchtap='goshare' data-type="dianpu">
+  <text class="iconfont icon-fenxiang"></text>
+</view>
+
+
+
+
+
+<foot-nav clickindex='0'></foot-nav>

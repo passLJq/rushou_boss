@@ -1,0 +1,11 @@
+/* pages/allclass/allclass.wxss */
+@import "../../common/iconfont.wxss";
+page{background-color: #fff}
+.suo{padding: 20rpx 0rpx;color: #999999;display: flex;align-items: center;border-radius: 30px;width: 90%;background-color: #F6F6FA;justify-content: center;z-index: 9999;margin:30rpx auto;}
+.suo i{font-size: 26rpx;}
+.suo text{margin-left: 20rpx;font-size: 24rpx}
+
+.fenul{display: flex;align-items: center;flex-wrap: wrap ;margin-bottom: 20rpx;background: #fff;padding-bottom: 30rpx;border-radius: 14px 14px 0 0}
+.fenli{width: 25%;box-sizing: border-box;text-align: center;padding-top: 30rpx}
+.fenli image{width: 128rpx;height: 128rpx;margin: 0 auto}
+.fenli text{color: #333;font-size: 24rpx;}
